@@ -2,13 +2,16 @@
     margin:0;
     padding:0;
 }
+body{
+    background-color: #c0d7d7;
+}
 .header .logo{
     width:20%;
     text-align: center;
     
 }
 .header{
-    background-color: #255355;
+    background-color: #557f81;
     overflow: hidden;
     display: flex;
     height: 160px;
@@ -27,11 +30,11 @@
     text-align: center;
     /* padding: 14px 16px; */
     text-decoration: none;
-    font-size: 10px;
+    font-size: 15px;
     font-family: 'Noto Sans TC', sans-serif;
 }
 .header span{
-    font-size: 20px;
+    font-size: 25px;
     letter-spacing: 10px;
 }
 .main-photo{
@@ -42,12 +45,28 @@
     height:300px;
 }
 .main-photo img{
-    max-width: 100%;
+    width: 100%;
 }
 .one, .two, .three{
     overflow: hidden;
 }
-
 .main{
-    background-color:#40B5B9;
+    height: 42vh;
+}
+.writing{
+    font-family: 'Noto Serif TC', serif;
+    color: #1A3C3D;
+    font-size: 30px;
+    letter-spacing: 3px;
+    width: 100%;
+    height: 140px;
+    margin: 70px 100px;
+}
+.footer{
+    background-color: #488A8C;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    padding: 32px;
 }
