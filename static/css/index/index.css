@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+}
+.header .logo{
+    width:20%;
+    text-align: center;
+    
+}
+.header{
+    background-color: #255355;
+    overflow: hidden;
+    display: flex;
+    height: 160px;
+}
+.menu{
+    width: 80%;
+    display: flex;
+    /* 垂直置中 */
+    align-items: center;
+    /* 水平平均分散，空白留在左右 */
+    justify-content:space-around;
+}
+.menu a{
+    float: left;
+    color: #F6DA4D;
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+    font-size: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.header span{
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+.main-photo{
+    /* 平均此 div 內的項目 */
+    justify-content:space-between;
+    display: flex;
+    width:100%;
+    height:300px;
+}
+.main-photo img{
+    max-width: 100%;
+}
+.one, .two, .three{
+    overflow: hidden;
+}
+
+.main{
+    background-color:#40B5B9;
+}

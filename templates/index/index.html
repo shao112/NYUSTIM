@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+    {% block title %}雲科資管系排{% endblock %}
+
+    {% block import %}
+
+    {% load static%}
+    <!-- import css -->
+    <link rel="stylesheet" href="{% static 'css/index/index.css' %}">
+    {% endblock %}
+
+    <!-- start here -->
+    {% block main %}
+    <!-- 匯入 header -->
+    {% include 'base/header.html' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="main-photo">
+                <div class="one">
+                    <img src="{% static 'img/1.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="two">
+                    <img src="{% static 'img/2.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <div class="three">
+                    <img src="{% static 'img/3.jpg' %}" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row main">
+            <div class="col-6">
+                左邊
+            </div>
+            <div class="col-6">
+                <div class="writing">
+                    <p>我們是雲科資管系排~</p>
+                    <p>歡迎你的加入!!</p>
+                    <p>如果你不是資管系的</p>
+                    <p>也歡迎與我們一起打球!!!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% endblock %}
