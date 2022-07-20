@@ -4,69 +4,38 @@
 }
 body{
     background-color: #c0d7d7;
+    max-width: 100%;
 }
-.header .logo{
-    width:20%;
-    text-align: center;
-    
-}
-.header{
-    background-color: #557f81;
-    overflow: hidden;
-    display: flex;
-    height: 160px;
-}
-.menu{
-    width: 80%;
-    display: flex;
-    /* 垂直置中 */
-    align-items: center;
-    /* 水平平均分散，空白留在左右 */
-    justify-content:space-around;
-}
-.menu a{
-    float: left;
-    color: #F6DA4D;
-    text-align: center;
-    /* padding: 14px 16px; */
-    text-decoration: none;
-    font-size: 15px;
-    font-family: 'Noto Sans TC', sans-serif;
-}
-.header span{
-    font-size: 25px;
-    letter-spacing: 10px;
-}
+
 .main-photo{
     /* 平均此 div 內的項目 */
     justify-content:space-between;
     display: flex;
-    width:100%;
-    height:300px;
+    /* width:100%; */
+    height:30vh;
 }
 .main-photo img{
+    object-fit: cover;
     width: 100%;
+}
+.one:hover img{
+    transform: scale(1.2);
+}
+.two:hover img{
+    transform: scale(1.2);
+}
+.three:hover img{
+    transform: scale(1.2);
 }
 .one, .two, .three{
     overflow: hidden;
-}
-.main{
-    height: 42vh;
 }
 .writing{
     font-family: 'Noto Serif TC', serif;
     color: #1A3C3D;
     font-size: 30px;
     letter-spacing: 3px;
-    width: 100%;
     height: 140px;
     margin: 70px 100px;
 }
-.footer{
-    background-color: #488A8C;
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    height: 80px;
-    padding: 32px;
-}
+

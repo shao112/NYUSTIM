@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+
+{% block title %}成員{% endblock %}
+
+{% block import %}
+
+{% load static%}
+<!-- import css -->
+<link rel="stylesheet" href="{% static 'css/members/members.css' %}">
+{% endblock %}
+
+<!-- start here -->
+{% block main %}
+<!-- 匯入 header -->
+{% include 'base/header.html' %}
+<div class="title text-center">
+    <h1 class="font-weight-bold">歷屆成員</h1> 
+</div>
+<div class="container-fluid">
+    <div class="row">
+        {% for i in "aaaaaa" %}
+        <div class="col-4 center">
+            <div class="card">
+                <div class="card-header">
+                    <img src="https://fakeimg.pl/200x150/" class="img-fluid rounded" alt="">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">姓名</h5>
+                    <p class="card-text">
+                        成員介紹
+                        <br>級次：
+                        <br>位置：
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- 匯入 footer -->
+{% include 'base/footer.html' %}
+{% endblock %}

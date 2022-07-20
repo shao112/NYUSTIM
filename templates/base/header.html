@@ -1,10 +1,12 @@
 <header>
-    <div class="header">
+    <div class="header shadow">
         <div class="logo">
-            NYUST IM
+            <div class="text">
+                <a href="{% url 'index' %}">NYUST IM</a>
+            </div>
         </div>
         <div class="menu">
-            <a href="#">
+            <a href="{% url 'members' %}">
             <span>成員介紹</span>
             <br>MEMBERS
             </a>
@@ -16,7 +18,7 @@
                 <span>活動花絮</span>
                 <br>ACTIVITY
             </a>
-            <a href="#">
+            <a href="{% url 'appointment' %}">
                 <span>預約友誼賽</span>
                 <br>APPOINTMENT
             </a>
