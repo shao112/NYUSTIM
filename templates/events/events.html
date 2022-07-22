@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+
+{% block title %}活動公告{% endblock %}
+
+{% block import %}
+
+{% load static%}
+<!-- import css -->
+<link rel="stylesheet" href="{% static 'css/members/members.css' %}">
+{% endblock %}
+
+<!-- start here -->
+{% block main %}
+<!-- 匯入 header -->
+{% include 'base/header.html' %}
+<div class="title text-center">
+    <h1 class="font-weight-bold">公告</h1> 
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="box rounded">
+            123
+        </div>
+    </div>
+</div>
+<!-- 匯入 footer -->
+{% include 'base/footer.html' %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+
+{% block title %}成員{% endblock %}
+
+{% block import %}
+
+{% load static%}
+<!-- import css -->
+<link rel="stylesheet" href="{% static 'css/competition/competition.css' %}">
+{% endblock %}
+
+<!-- start here -->
+{% block main %}
+<!-- 匯入 header -->
+{% include 'base/header.html' %}
+<div class="title text-center">
+    <h1 class="font-weight-bold">近期賽事</h1> 
+</div>
+<div class="container-fluid">
+    <div class="row">
+        
+    </div>
+</div>
+<!-- 匯入 footer -->
+{% include 'base/footer.html' %}
+{% endblock %}

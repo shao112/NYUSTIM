@@ -18,6 +18,14 @@ def members(request):
     # }
     return render(request, "members/members.html")
 
+# 賽事
+def competition(request):
+    # news = News.objects.all().order_by('id')
+    # context = {
+    #     'news':news
+    # }
+    return render(request, "competition/competition.html")
+
 # 預約友誼賽
 def appointment(request):
     # news = News.objects.all().order_by('id')
@@ -25,3 +33,11 @@ def appointment(request):
     #     'news':news
     # }
     return render(request, "appointment/appointment.html")
+
+# 活動公告
+def events(request):
+    # news = News.objects.all().order_by('id')
+    # context = {
+    #     'news':news
+    # }
+    return render(request, "events/events.html")
