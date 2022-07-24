@@ -38,4 +38,5 @@ body{
 }
 .thumb{
     cursor: pointer;
+    width: fit-content;
 }

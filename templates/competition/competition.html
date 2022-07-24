@@ -15,12 +15,23 @@
 <!-- 匯入 header -->
 {% include 'base/header.html' %}
 <div class="title text-center">
-    <h1 class="font-weight-bold">近期賽事</h1> 
+    <h1 class="font-weight-bold">賽事報導</h1> 
 </div>
 <div class="container-fluid">
+    {% for i in "aaaaaa" %}
     <div class="row">
-        
+        <div class="card shadow">
+            <div class="cover">
+                <img src="https://fakeimg.pl/250x200/" class="img-fluid object-fit-contain" alt="">
+            </div>
+            <div class="description">
+                <h3><span class="badge badge-danger type">新生盃</span></h3>
+                <h4 class="report-title">第一篇報導</h4>
+                <h6 class="editor">小編</h6>
+            </div>
+        </div>
     </div>
+    {% endfor %}
 </div>
 <!-- 匯入 footer -->
 {% include 'base/footer.html' %}

@@ -16,3 +16,36 @@ body{
     -webkit-background-clip: text;
     color: transparent;
 }
+.card{
+    display: block;
+    width: 50%;
+    height: 150px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.cover{
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+.description{
+    width: 70%;
+    height: 100%;
+    float: right;
+}
+.object-fit-contain{
+    object-fit:contain;
+}
+.report-title{
+    margin: 38px 10px 0px 10px;
+}
+.editor{
+    position: absolute;
+    bottom: 5px;
+    margin-left: 10px;
+}
+.type{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}

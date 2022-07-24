@@ -1,6 +1,7 @@
 .header .logo{
     width:20%;
     text-align: center;
+    margin: auto;
 }
 .header{
     background-color: #245759;

@@ -6,13 +6,24 @@ body{
     background-color: #c0d7d7;
     max-width: 100%;
 }
-.form{
-    max-width: 30%;
-    margin: 40px 656px;
+.title{
+    margin-top: 30px;
 }
+.title h1{
+    font-family: "Microsoft JhengHei", sans-serif;
+    background: -webkit-linear-gradient(bottom, #243c29, #3e8780);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 #exampleInputName1{
     width: 40%;
 }
 #exampleFormControlSelect1{
     width: 40%;
+}
+#form{
+    max-width: 30%;
+    margin: 0px auto;
 }
