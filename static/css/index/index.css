@@ -17,16 +17,16 @@ body{
 .main-photo img{
     object-fit: cover;
     width: 100%;
-    transition: 1s;
+    transition: 0.5s;
 }
 .one:hover img{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .two:hover img{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .three:hover img{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .one, .two, .three{
     overflow: hidden;

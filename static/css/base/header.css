@@ -19,6 +19,7 @@
     /* 水平平均分散，空白留在左右 */
     justify-content:space-around;
     padding-right: 300px;
+    padding-right: 200px;
 }
 .menu a{
     float: left;

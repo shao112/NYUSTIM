@@ -6,6 +6,14 @@ body{
     background-color: #c0d7d7;
     max-width: 100%;
 }
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+   
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border: 1px solid #2b537a;
+}
 .card{
     width: 350px;
     height: 400px;

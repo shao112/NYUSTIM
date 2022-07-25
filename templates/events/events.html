@@ -7,7 +7,7 @@
 
 {% load static%}
 <!-- import css -->
-<link rel="stylesheet" href="{% static 'css/members/members.css' %}">
+<link rel="stylesheet" href="{% static 'css/events/events.css' %}">
 {% endblock %}
 
 <!-- start here -->
@@ -19,9 +19,14 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="box rounded">
-            123
+        {% for i in "aaaaaa" %}
+        <div class="col-3 center">
+            <div class="box rounded">
+                123
+            </div>
         </div>
+        {% endfor %}
+        
     </div>
 </div>
 <!-- 匯入 footer -->
