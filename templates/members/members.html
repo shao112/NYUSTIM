@@ -20,17 +20,19 @@
 <div class="container-fluid">
     <div class="row">
         {% for i in "aaaaaa" %}
+        {% for n in members %}
         <div class="col-4 center">
             <div class="card">
                 <div class="card-header">
                     <img src="https://fakeimg.pl/200x150/" class="img-fluid rounded" alt="">
                 </div>
+                
                 <div class="card-body">
-                    <h5 class="card-title">姓名</h5>
+                    <h5 class="card-title">{{ n.name }}</h5>
                     <p class="card-text">
-                        成員介紹
-                        <br>級次：
-                        <br>位置：
+                        {{ n.description }}
+                        <br>級次：{{ n.grade }}
+                        <br>位置：{{ n.get_position_display }}
                     </p>
                     <div class="thumb">
                         <img src="{% static 'img/members/thumb.png' %}" class="img-fluid" alt="">
@@ -41,6 +43,7 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
         {% endfor %}
     </div>
 </div>

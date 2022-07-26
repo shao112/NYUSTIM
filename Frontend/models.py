@@ -22,8 +22,8 @@ class Members(models.Model):
     description = models.TextField(verbose_name='成員介紹')
     image = models.ImageField(upload_to="membersImage", verbose_name='照片')
     grade = models.CharField(max_length=3, verbose_name="級次")
-    thumb = models.IntegerField(verbose_name="按讚次數", null=True)
-    position = models.CharField(max_length=1, choices=Position_type)
+    thumb = models.IntegerField(default=0, verbose_name="按讚次數", null=True)
+    position = models.CharField(max_length=1, choices=Position_type, verbose_name="位置")
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
