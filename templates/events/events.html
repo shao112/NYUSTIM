@@ -18,16 +18,18 @@
     <h1 class="font-weight-bold">公告</h1> 
 </div>
 <div class="container-fluid">
+    {% for i in "aaaaaa" %}
     <div class="row">
-        {% for i in "aaaaaa" %}
-        <div class="col-3 center">
-            <div class="box rounded">
-                123
+        <div class="card shadow font-weight-bold">
+            <div class="type">
+                練球時間
+            </div>
+            <div class="content">
+                嗨嗨
             </div>
         </div>
-        {% endfor %}
-        
     </div>
+    {% endfor %}
 </div>
 <!-- 匯入 footer -->
 {% include 'base/footer.html' %}

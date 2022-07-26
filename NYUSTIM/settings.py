@@ -40,7 +40,43 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # APP
     'Frontend',
+    # 套件
+    'ckeditor',
+    'ckeditor_uploader',
+    'django_cleanup',
 ]
+
+####################################
+##  CKEDITOR CONFIGURATION ##
+####################################
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'  # 上傳文件的目錄
+CKEDITOR_IMAGE_BACKEND = 'pillow'  # pillow做爲backend
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono-lisa',
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+        'toolbar_Full': [
+            ['Scayt', 'Image', 'Flash', 'Smiley'],
+            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select'],            '/',        [
+                'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+            ['Outdent', 'Indent', '-',
+                'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'],
+            ['Link', 'Unlink'],            '/',
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'] 
+
+        ],
+        'tabSpaces': 2,
+        'width': '100%',
+        'height': '100%',
+        'toolbar': 'Full',  # 工具欄全部功能
+        'extraPlugins': 'codesnippet',  # 插入程式code
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,6 +102,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.media',
                 'django.contrib.messages.context_processors.messages',
             ],
         },

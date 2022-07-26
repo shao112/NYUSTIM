@@ -47,4 +47,12 @@ body{
 .thumb{
     cursor: pointer;
     width: fit-content;
+    float: left;
+}
+.thumb:active {
+    transform: translateY(4px);
+}
+.hit{
+    float: right;
+    margin: 15px auto;
 }

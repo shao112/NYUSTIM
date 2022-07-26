@@ -22,7 +22,7 @@ class Members(models.Model):
     description = models.TextField(verbose_name='成員介紹')
     image = models.ImageField(upload_to="membersImage", verbose_name='照片')
     grade = models.CharField(max_length=3, verbose_name="級次")
-    thumb = models.IntegerField(verbose_name="按讚次數")
+    thumb = models.IntegerField(verbose_name="按讚次數", null=True)
     position = models.CharField(max_length=1, choices=Position_type)
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
@@ -55,19 +55,20 @@ class Competition(models.Model):
         verbose_name_plural = verbose_name   #複數
 
 # 活動公告
+class Events(models.Model):
+    
+    type = models.CharField(max_length=10, verbose_name="類型")
+    content = models.TextField(verbose_name='內容')
+    created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
+    update_date = models.DateField(auto_now=True, verbose_name='更新日期')
+    class Meta:
+        verbose_name = "活動公告"   # 單數
+        verbose_name_plural = verbose_name   #複數
 
 # 預約友誼賽
 
 class Appointment(models.Model):
-    Position_type = (
-        ('1', '大砲'),
-        ('2', '舉球'),
-        ('3', '自由'),
-        ('4', '副攻'),
-        ('5', '欄中'),
-        ('6', '輔舉'),
-        ('7', '打雜'),
-    )
+
     name = models.CharField(max_length=20, verbose_name="稱謂")
     department = models.TextField(verbose_name='科系')
     date = models.TextField(verbose_name="日期")

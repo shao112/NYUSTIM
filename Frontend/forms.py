@@ -1,66 +1,99 @@
 from django import forms
-from .models import Members, Competition, Appointment
+from .models import Members, Competition, Appointment, Events
 
-# 新增最新消息填寫表單
+# 成員表單
 
 class MembersForm(forms.ModelForm):
 
     class Meta:
         model = Members
         
-        fields = ('title', 'content', 'type')
+        fields = ('name', 'description', 'grade', 'thumb', 'position')
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.TextInput(attrs={'class': 'form-control'}),
-            'type': forms.Select(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.TextInput(attrs={'class': 'form-control'}),
+            'grade': forms.TextInput(attrs={'class': 'form-control'}),
+            'thumb': forms.NumberInput(attrs={'class': 'form-control'}),
+            'position': forms.Select(attrs={'class': 'form-control'}),
         }
 
         labels = {
-            'title': '標題',
-            'content': '內容',
-            'type': '類型',
+            'name': '姓名',
+            'description': '成員介紹',
+            'grade': '級次',
+            'thumb': '按讚次數',
+            'position': '位置',
         }
 
-# 新增課程表單
+# 賽事表單
 
 class CompetitionForm(forms.ModelForm):
 
     class Meta:
         model = Competition
         
-        fields = ('title', 'content', 'type')
+        fields = ('title', 'content', 'editor', 'type')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'content': forms.TextInput(attrs={'class': 'form-control'}),
+            'editor': forms.TextInput(attrs={'class': 'form-control'}),
             'type': forms.Select(attrs={'class': 'form-control'}),
         }
 
         #預設會是顯示英文欄位，可用labels改成對應中文欄位
         labels = {
-            'title': '課程名稱',
-            'content': '課程內容',
-            'type': '課程類型',
+            'title': '標題',
+            'content': '內容',
+            'editor': '編輯者',
+            'type': '報導類別',
         }
 
-# 新增校級共用實驗室
+# 活動公告表單
+
+class EventForm(forms.ModelForm):
+
+    class Meta:
+        model = Events
+        
+        fields = ('type', 'content')
+
+        widgets = {
+            'type': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+        #預設會是顯示英文欄位，可用labels改成對應中文欄位
+        labels = {
+            'type': '類別',
+            'content': '內容',
+        }
+
+# 預約友誼賽表單
 
 class AppointmentForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
         
-        fields = ('title', 'content', 'imageone')
+        fields = ('name', 'department', 'date', 'time', 'email', 'msg')
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.TextInput(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+            'department': forms.Select(attrs={'class': 'form-control'}),
+            'date': forms.TextInput(attrs={'class': 'form-control'}),
+            'time': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'msg': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
         #預設會是顯示英文欄位，可用labels改成對應中文欄位
         labels = {
-            'title': '教室名稱',
-            'content': '教室描述',
-            'imageone': '教室照片',
+            'name': '稱謂',
+            'department': '系級',
+            'date': '預約日期',
+            'time': '預約時間',
+            'email': '電子信箱',
+            'msg': '留言',
         }
