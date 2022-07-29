@@ -24,8 +24,9 @@ body{
     overflow: hidden;
 }
 .cover{
-    width: 30%;
-    height: 100%;
+    /* width: 30%; */
+    width: 287.39px;
+    object-fit: cover;
     float: left;
 }
 .description{
@@ -33,19 +34,30 @@ body{
     height: 100%;
     float: right;
 }
-.object-fit-contain{
-    object-fit:contain;
-}
 .report-title{
-    margin: 38px 10px 0px 10px;
+    margin: 38px 10px 0px 14px;
 }
 .editor{
     position: absolute;
     bottom: 5px;
-    margin-left: 10px;
+    margin-left: 14px;
 }
 .type{
+    font-size: 1.1rem;
     position: absolute;
     right: 5px;
     top: 5px;
+}
+/* @media (max-width:497px) {
+    .cover {
+        display: none;
+    }
+} */
+@media (max-width:1320px) {
+    .cover{
+        display: none;
+    }
+    .description{
+        float: left;
+    }
 }

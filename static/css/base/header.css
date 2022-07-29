@@ -19,7 +19,6 @@
     /* 水平平均分散，空白留在左右 */
     justify-content:space-around;
     padding-right: 300px;
-    padding-right: 200px;
 }
 .menu a{
     float: left;
@@ -40,4 +39,29 @@
 }
 .shadow{
     box-shadow: 0 .9rem 20px rgba(0,0,0,.15)!important;
+}
+@media (max-width:1320px) {
+    .menu{
+        padding-right: 106px;
+    }
+}
+@media (max-width: 991px) {
+    .menu {
+        padding-right: 20px;
+    }
+}
+@media (max-width: 390px) {
+    .menu{
+        display: block;
+        padding: 20px 0px 20px 60px;
+    }
+    .menu a{
+        padding: 5px;
+    }
+    .header {
+        height: 350px;
+    }
+    .header h6{
+        font-size: 1.2rem;
+    }
 }
