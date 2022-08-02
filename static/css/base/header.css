@@ -50,16 +50,21 @@
         padding-right: 20px;
     }
 }
-@media (max-width: 390px) {
+@media (max-width: 420px) {
     .menu{
         display: block;
         padding: 20px 0px 20px 60px;
     }
     .menu a{
-        padding: 5px;
+        margin: 5px auto;
     }
     .header {
         height: 350px;
+    }
+}
+@media (max-width: 390px) {
+    .menu{
+        padding: 20px 0px 20px 60px;
     }
     .header h6{
         font-size: 1.2rem;

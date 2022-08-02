@@ -23,7 +23,8 @@
         <div class="col-4 center">
             <div class="card">
                 <div class="card-header">
-                    <img src="https://fakeimg.pl/200x150/" class="img-fluid rounded" alt="">
+                    <!-- <img src="https://fakeimg.pl/200x150/" class="img-fluid rounded" alt=""> -->
+                    <img src="{{ MEDIA_URL }}{{ n.image }}" class="img-fluid rounded cover" alt="">
                 </div>
                 
                 <div class="card-body">
@@ -37,7 +38,7 @@
                         <img src="{% static 'img/members/thumb.png' %}" class="img-fluid" alt="">
                     </div>
                     <div class="hit">
-                        <h5>熱度</h5>
+                        <h5>{{ n.thumb }}</h5>
                     </div>
                 </div>
             </div>

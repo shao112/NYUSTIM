@@ -24,14 +24,12 @@ body{
     overflow: hidden;
 }
 .cover{
-    /* width: 30%; */
     width: 287.39px;
     object-fit: cover;
     float: left;
 }
 .description{
-    width: 70%;
-    height: 100%;
+    width: 60%;
     float: right;
 }
 .report-title{

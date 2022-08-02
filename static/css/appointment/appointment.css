@@ -27,3 +27,11 @@ body{
     max-width: 30%;
     margin: 0px auto;
 }
+@media (max-width:420px) {
+    #exampleInputName1{
+        width: 50%;
+    }
+    #exampleFormControlSelect1{
+        width: 50%;
+    }
+}

@@ -48,3 +48,15 @@ body{
     height: 100%;
     float: right;
 }
+@media (max-width: 420px) {
+    .type{
+        font-size: 16px;
+        padding: 0.8rem 0;
+        padding-left: 0.5rem;
+    }
+    .content {
+        font-size: 16px;
+        padding: 1.5rem 0.5rem;
+        width: 75%;
+    }
+}

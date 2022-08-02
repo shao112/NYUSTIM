@@ -30,6 +30,20 @@
         </div>
     </div>
     {% endfor %}
+    {% for i in competition.paginator.page_range %}
+          <li class="page-item {% if i == competition.number %} active{% endif %}">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+        {% endfor %}
+    
+        {% if competition.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ competition.next_page_number }}">next</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ competition.paginator.num_pages }}">last »</a>
+          </li>
+        {% endif %}
 </div>
 <!-- 匯入 footer -->
 {% include 'base/footer.html' %}
