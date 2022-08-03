@@ -28,7 +28,7 @@ body{
     border-radius: 1rem;
     display: block;
     width: 50%;
-    height: 80px;
+    height: fit-content;
     margin: 20px auto;
     font-size: 1.1rem;
     color: #4a644e;
@@ -41,6 +41,7 @@ body{
     display: flex;
     justify-content: center;
     letter-spacing: 3px;
+    border-right: 1px solid #354738;
 }
 .content{
     padding: 1.5rem;
@@ -48,15 +49,21 @@ body{
     height: 100%;
     float: right;
 }
+@media (max-width: 991px) {
+    .card{
+        width: 80%;
+    }
+    .content {
+        padding: 0.5rem;
+    }
+}
 @media (max-width: 420px) {
     .type{
         font-size: 16px;
-        padding: 0.8rem 0;
-        padding-left: 0.5rem;
+        padding: 0.8rem;
     }
     .content {
         font-size: 16px;
-        padding: 1.5rem 0.5rem;
-        width: 75%;
+        padding: .5rem .5rem;
     }
 }

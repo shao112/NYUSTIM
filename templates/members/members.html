@@ -8,6 +8,9 @@
 {% load static%}
 <!-- import css -->
 <link rel="stylesheet" href="{% static 'css/members/members.css' %}">
+<!-- import js -->
+<script src="{% static 'js/vue.js' %}"> </script>
+<script src="{% static 'js/axios.min.js' %}"> </script>
 {% endblock %}
 
 <!-- start here -->
@@ -17,35 +20,74 @@
 <div class="title text-center">
     <h1 class="font-weight-bold">歷屆成員</h1> 
 </div>
-<div class="container-fluid">
+<div class="container-fluid" id="app">
     <div class="row">
-        {% for n in members %}
-        <div class="col-4 center">
+        <div class="col-4 center" v-for="item in membersListSearch">
             <div class="card">
                 <div class="card-header">
                     <!-- <img src="https://fakeimg.pl/200x150/" class="img-fluid rounded" alt=""> -->
-                    <img src="{{ MEDIA_URL }}{{ n.image }}" class="img-fluid rounded cover" alt="">
+                    <img v-bind:src="item.image" class="img-fluid rounded cover" alt="">
                 </div>
                 
                 <div class="card-body">
-                    <h5 class="card-title">{{ n.name }}</h5>
+                    <h5 class="card-title">${ item.name }</h5>
                     <p class="card-text">
-                        {{ n.description }}
-                        <br>級次：{{ n.grade }}
-                        <br>位置：{{ n.get_position_display }}
+                        ${ item.description }
+                        <br>級次：${ item.grade }
+                        <br>位置：${ item.position }
                     </p>
-                    <div class="thumb">
+                    <div class="thumb" @click="onClick(item)">
                         <img src="{% static 'img/members/thumb.png' %}" class="img-fluid" alt="">
                     </div>
                     <div class="hit">
-                        <h5>{{ n.thumb }}</h5>
+                        <h5>${ item.thumb }</h5>
                     </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
 </div>
 <!-- 匯入 footer -->
 {% include 'base/footer.html' %}
+
+<script>
+    axios.defaults.xsrfCookieName = 'csrftoken';
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+    let membersVue = new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data: {
+            search: "",
+            grade: "",
+            thumb: [],
+            membersList: [],
+        },
+        mounted: function () {
+            axios.post("{% url 'apigetdblist' 'members' %}")
+                .then((response) => {
+                    let getdata = response.data;
+                    console.log(getdata);
+                    for (let i = 0; i < getdata.length; i++) {
+                        this.thumb[i] = getdata[i].thumb ;
+                    }
+                    this.membersList = getdata;
+                })
+                .catch((error) => console.log(error));
+        },
+        methods: {
+            onClick(item) {
+                item.thumb += 1;
+            }
+        },
+        computed: {
+            membersListSearch() {
+                if (this.grade === "") {
+                    return this.membersList;
+                }
+            }
+        }
+
+    })
+</script>
 {% endblock %}
+

@@ -18,6 +18,7 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    path('getlist/<str:dbtype>', views.DataTransform, name='apigetdblist'),
     path('', views.index, name="index"),
     path('members/', views.members, name="members"),
     

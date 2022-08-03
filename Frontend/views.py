@@ -1,9 +1,38 @@
 from django.shortcuts import render
 from .models import Members, Competition, Appointment, Events
+from django.http import JsonResponse
 # 分頁
 from django.core.paginator import Paginator
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
+@csrf_exempt
+def DataTransform(request,dbtype):
+
+    switch_db = {
+        "members":Members,
+        "competition":Competition,
+        "appointment":Appointment,
+        "events":Events
+    }
+    getdb = switch_db.get(dbtype)
+
+    datalist = []
+    if dbtype ==None:
+        return JsonResponse({"error":"請求失敗"})
+    else:        
+        getdata = getdb.objects.all()
+        for one_data in getdata:
+            if getdb == Members:
+                # 可能之後有選項的都要改成 type
+                one_data.position = one_data.get_position_display()
+                print(one_data.position)
+            data = one_data.to_dict()
+            print("-------------------")
+            print(data)
+            datalist.append(data)
+        print(datalist)
+    return JsonResponse(datalist, safe=False)
 
 # 首頁
 def index(request):

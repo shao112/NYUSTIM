@@ -3,6 +3,7 @@ from django.db import models
 from django.utils import timezone
 # django-ckeditor
 from ckeditor_uploader.fields import RichTextUploadingField
+from itertools import chain
 
 # Create your models here.
 
@@ -32,6 +33,19 @@ class Members(models.Model):
         ordering = ['-id']
         # order_with_respect_to = 'id'
 
+    def to_dict(self):
+        opts = self._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
+            else:
+                data[f.name] = f.value_from_object(self)
+        return data
+
 # 賽事報導
 
 class Competition(models.Model):
@@ -54,16 +68,42 @@ class Competition(models.Model):
         verbose_name = "賽事報導"   # 單數
         verbose_name_plural = verbose_name   #複數
 
+    def to_dict(self):
+        opts = self._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
+            else:
+                data[f.name] = f.value_from_object(self)
+        return data
+
 # 活動公告
 class Events(models.Model):
     
-    type = models.CharField(max_length=10, verbose_name="類型")
+    type = models.CharField(max_length=4, verbose_name="類型")
     content = models.TextField(verbose_name='內容')
     created_date = models.DateField(default=timezone.now,verbose_name='建立日期')
     update_date = models.DateField(auto_now=True, verbose_name='更新日期')
     class Meta:
         verbose_name = "活動公告"   # 單數
         verbose_name_plural = verbose_name   #複數
+
+    def to_dict(self):
+        opts = self._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
+            else:
+                data[f.name] = f.value_from_object(self)
+        return data
 
 # 預約友誼賽
 
@@ -80,3 +120,16 @@ class Appointment(models.Model):
     class Meta:
         verbose_name = "預約友誼賽"   # 單數
         verbose_name_plural = verbose_name   #複數
+    
+    def to_dict(self):
+        opts = self._meta
+        data ={}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            print("_____________")
+            print(f.name)
+            if f.name == 'image':
+                data[f.name] = f.value_from_object(self).url
+                print(f.value_from_object(self).url)
+            else:
+                data[f.name] = f.value_from_object(self)
+        return data

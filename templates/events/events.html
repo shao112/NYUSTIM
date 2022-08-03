@@ -18,32 +18,44 @@
     <h1 class="font-weight-bold">公告</h1> 
 </div>
 <div class="container-fluid">
-    {% for i in "aaaaaa" %}
+    {% for e in events %}
     <div class="row">
         <div class="card shadow font-weight-bold">
             <div class="type">
-                練球時間
+                {{ e.type }}
             </div>
             <div class="content">
-                嗨嗨
+                {{ e.content }}
             </div>
         </div>
     </div>
     {% endfor %}
-    {% for i in competition.paginator.page_range %}
-          <li class="page-item {% if i == competition.number %} active{% endif %}">
-            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-          </li>
-        {% endfor %}
-    
-        {% if competition.has_next %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ competition.next_page_number }}">next</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="?page={{ competition.paginator.num_pages }}">last »</a>
-          </li>
-        {% endif %}
+    <ul class="pagination" style="justify-content: center;">
+      {% if events.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1">« first</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ events.previous_page_number }}">previous</a>
+        </li>
+      {% endif %}
+  
+      {% for i in events.paginator.page_range %}
+        <li class="page-item {% if i == events.number %} active{% endif %}">
+          <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+        </li>
+      {% endfor %}
+  
+      {% if events.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ events.next_page_number }}">next</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ events.paginator.num_pages }}">last »</a>
+        </li>
+      {% endif %}
+  
+  </ul>
 </div>
 <!-- 匯入 footer -->
 {% include 'base/footer.html' %}

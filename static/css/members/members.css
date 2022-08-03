@@ -9,7 +9,7 @@ body{
 /*
  * 明體 cwTeXMing (Chinese Traditional) http://www.google.com/fonts/earlyaccess
  */
- @font-face {
+ /* @font-face {
     font-family: 'cwTeXMing';
     font-style: normal;
     font-weight: 500;
@@ -18,12 +18,11 @@ body{
          url(//fonts.gstatic.com/ea/cwtexming/v3/cwTeXMing-zhonly.woff2) format('woff2'),
          url(//fonts.gstatic.com/ea/cwtexming/v3/cwTeXMing-zhonly.woff) format('woff'),
          url(//fonts.gstatic.com/ea/cwtexming/v3/cwTeXMing-zhonly.ttf) format('truetype');
-}
+} */
 .card{
     width: 350px;
     height: 400px;
     background-color: beige;
-    font-family: 'cwTeXMing';
 }
 .card-header{
     font-size: 1.5rem;
@@ -33,7 +32,7 @@ body{
 .cover{
     width: 200px;
     height: 150px;
-    object-fit: cover;
+    object-fit: contain;
 }
 .row{
     padding: 35px 250px;
@@ -67,4 +66,9 @@ body{
 .hit{
     float: right;
     margin: 15px auto;
+}
+@media (max-width:821px){
+    .row{
+        padding: 0px;
+    }
 }
