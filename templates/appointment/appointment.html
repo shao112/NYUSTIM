@@ -21,51 +21,61 @@
     <div class="form">
         <form action="" id="form">
             <div class="form-group">
-                <label for="exampleInputName1">稱謂</label>
-                <input type="#" class="form-control form-control-lg" id="exampleInputName1" aria-describedby="nameHelp">
-                <small id="nameHelp" class="form-text text-muted">我們該如何稱呼您呢～</small>
+                <label for="Name">稱謂</label>
+                <input type="text" class="form-control form-control-lg" id="Name" required>
+                <small id="Name" class="form-text text-muted">我們該如何稱呼您呢～</small>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">科系</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>企管系</option>
-                    <option>工管系</option>
-                    <option>財金系</option>
-                    <option>會計系</option>
-                    <option>國管系</option>
+                <label for="Department-Main">學院</label>
+                <select class="form-control" id="Department-Main" onchange="choose_d()">
+                    <option value="管理學院">管理學院</option>
+                    <option value="工程學院">工程學院</option>
+                    <option value="人文學院">人文學院</option>
+                    <option value="設計學院">設計學院</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleInputDate1">日期</label>
-                <input type="#" class="form-control form-control-lg" id="exampleInputDate1" aria-describedby="dateHelp">
-                <small id="dateHelp" class="form-text text-muted">友誼賽的日期</small>
+                <label for="Department">科系</label>
+                <select class="form-control" id="Department" required>
+                    <!-- 空空 option -->
+                    <option value="企管系">企管系</option>
+                    <option value="工管系">工管系</option>
+                    <option value="財金系">財金系</option>
+                    <option value="會計系">會計系</option>
+                    <option value="國管系">國管系</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Date">日期</label>
+                <input type="date" class="form-control form-control-lg" id="Date" required>
+                <small id="Date" class="form-text text-muted">友誼賽的日期</small>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
+                <input class="form-check-input" type="radio" name="Time1" id="Time1" value="5:30" checked>
+                <label class="form-check-label" for="Time1">
                   早上 5:30
                 </label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
+                <input class="form-check-input" type="radio" name="Time2" id="Time2" value="6:00">
+                <label class="form-check-label" for="Time2">
                     早上 6:00
                 </label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                <label class="form-check-label" for="exampleRadios3">
+                <input class="form-check-input" type="radio" name="Time3" id="Time3" value="6:30">
+                <label class="form-check-label" for="Time3">
                     早上 6:30
                 </label>
               </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">電子信箱</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">讓我們可以透過電子信箱聯絡你!!</small>
+                <label for="Email1">電子信箱</label>
+                <input type="email" class="form-control" id="Email1" required>
+                <small id="Email1" class="form-text text-muted">讓我們可以透過電子信箱聯絡你!!</small>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">留ㄍ言吧</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="Message">留ㄍ言吧</label>
+                <textarea class="form-control" id="Message" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">送出</button>
         </form>
@@ -73,4 +83,99 @@
 </div>
 <!-- 匯入 footer -->
 {% include 'base/footer.html' %}
+<script>
+    // JSON
+    var management = [
+        { label: "企管系", value: "企管系" },
+        { label: "工管系", value: "工管系" },
+        { label: "財金系", value: "財金系" },
+        { label: "會計系", value: "會計系" },
+        { label: "國管系", value: "國管系" }
+    ];
+    var engineering = [
+        { label: "機械工程", value: "機械工程" },
+        { label: "電機工程", value: "電機工程" },
+        { label: "電子工程", value: "電子工程" },
+        { label: "環安系", value: "環安系" },
+        { label: "化材系", value: "化材系" },
+        { label: "營建系", value: "營建系" },
+        { label: "資工系", value: "資工系" }
+    ]
+    var design = [
+        { label: "工設系", value: "工設系" },
+        { label: "視傳系", value: "視傳系" },
+        { label: "建築系", value: "建築系" },
+        { label: "數媒系", value: "數媒系" },
+        { label: "創設系", value: "創設系" }
+    ]
+    var humanities = [
+        { label: "應外系", value: "應外系" },
+        { label: "文資系", value: "文資系" }
+    ]
+    function choose_d(){
+        // 抓取學院
+        var department_main = document.getElementById("Department-Main").value;
+        console.log(department_main);
+        // 回傳對應的科系
+        var department = document.getElementById("Department");
+        switch (department_main) {
+            case '管理學院': {
+                // var tem = document.querySelector(#Department option);
+                var child = document.getElementsByTagName("option");
+                console.log(child.length);
+                for (var i = 0; i < management.length; i++) {
+                    // department.removeChild() 如果數字不隊呢
+                    var m = management[i];
+                    
+                    var op = document.createElement("option");
+                    op.setAttribute("label", m.label);
+                    op.setAttribute("value", m.value);
+                    department.appendChild(op);
+                }
+                break;
+            }
+            case '工程學院': {
+                for (var i = 0; i < engineering.length; i++) {
+                    var e = engineering[i];
+
+                    var op = document.createElement("option");
+                    op.setAttribute("label", e.label);
+                    op.setAttribute("value", e.value);
+                    department.appendChild(op);
+                }
+                break;
+            }
+            case '人文學院': {
+                for (var i = 0; i < humanities.length; i++) {
+                    var h = humanities[i];
+                    var op = document.createElement("option");
+                    op.setAttribute("label", h.label);
+                    op.setAttribute("value", h.value);
+                    department.appendChild(op);
+                }
+                break;
+            }
+            case '設計學院': {
+                for (var i = 0; i < design.length; i++) {
+                    var d = design[i];
+                    var op = document.createElement("option");
+                    op.setAttribute("label", d.label);
+                    op.setAttribute("value", d.value);
+                    department.appendChild(op);
+                }
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+    }
+    function removeOption(){
+        // var selectobject = document.getElementById("Department");
+        for (var i=0; i<child.length; i++) {
+            department.remove(child[i]);
+        }
+    }
+</script>
+
 {% endblock %}
