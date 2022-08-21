@@ -71,19 +71,35 @@ class EventForm(forms.ModelForm):
         }
 
 # 預約友誼賽表單
+Department_Choice = [
+    ("企管系","企管系"),
+    ("工管系","工管系"),
+    ("財金系","財金系"),
+    ("會計系","會計系"),
+    ("國管系","國管系"),
+    ("應外系","應外系"),
+    ("文資系","文資系"),
+]
 
 class AppointmentForm(forms.ModelForm):
 
     class Meta:
+        
         model = Appointment
         
         fields = ('name', 'department', 'date', 'time', 'email', 'msg')
 
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'department': forms.Select(attrs={'class': 'form-control'}),
+            'name': forms.TextInput(attrs={
+                'class': 'form-control form-control-lg',
+                'id': 'Name'
+            }),
+            'department': forms.TextInput(attrs={
+                'class': 'form-control',
+                'id': 'InpurDepartment'
+            }),
             'date': forms.TextInput(attrs={'class': 'form-control'}),
-            'time': forms.Select(attrs={'class': 'form-control'}),
+            'time': forms.Select( attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'msg': forms.TextInput(attrs={'class': 'form-control'}),
         }

@@ -22,7 +22,8 @@
         <form action="" id="form">
             <div class="form-group">
                 <label for="Name">{{ form.name.label }}</label>
-                <input type="text" class="form-control form-control-lg" id="Name" required>
+                {{ form.name }}
+                <!-- <input type="text" class="form-control form-control-lg" id="Name" required> -->
                 <small id="Name" class="form-text text-muted">我們該如何稱呼您呢～</small>
             </div>
             <div class="form-group">
@@ -36,7 +37,9 @@
             </div>
             <div class="form-group">
                 <label for="Department">{{ form.department.label }}</label>
-                <select class="form-control department" id="Department" required>
+                <!-- display:none -->
+                <p id="">{{ form.department }}</p>
+                <select class="form-control" id="Department" onchange="choose_dd()" required>
                     <option value="企管系">企管系</option>
                     <option value="工管系">工管系</option>
                     <option value="財金系">財金系</option>
@@ -201,6 +204,11 @@
                 break;
             }
         }
+    }
+    function choose_dd(){
+        var x = document.getElementById("Department").value;
+        console.log(x);
+        document.getElementById("InpurDepartment").inner = x;
     }
 </script>
 
