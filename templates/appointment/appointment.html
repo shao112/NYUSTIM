@@ -36,8 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="Department">科系</label>
-                <select class="form-control" id="Department" required>
-                    <!-- 空空 option -->
+                <select class="form-control department" id="Department" required>
                     <option value="企管系">企管系</option>
                     <option value="工管系">工管系</option>
                     <option value="財金系">財金系</option>
@@ -112,19 +111,26 @@
         { label: "應外系", value: "應外系" },
         { label: "文資系", value: "文資系" }
     ]
+
     function choose_d(){
         // 抓取學院
         var department_main = document.getElementById("Department-Main").value;
         console.log(department_main);
-        // 回傳對應的科系
-        var department = document.getElementById("Department");
+        // 判斷哪個學院就造哪個 option
         switch (department_main) {
             case '管理學院': {
-                // var tem = document.querySelector(#Department option);
-                var child = document.getElementsByTagName("option");
-                console.log(child.length);
+                // var old_option = document.querySelector('#Department option'); <- 這只能抓第一個option
+                // var old_option = document.getElementsByTagName("option"); <- 學院跟科系都有option
+                var department = document.getElementById("Department");
+                console.log(department)
+                var old_option = document.querySelectorAll('#Department option');
+                console.log("old_option " + old_option);
+                console.log("old_option.length " + old_option.length);
+                // 把 option 清除
+                old_option.forEach(o => o.remove());
+                console.log(old_option)
+
                 for (var i = 0; i < management.length; i++) {
-                    // department.removeChild() 如果數字不隊呢
                     var m = management[i];
                     
                     var op = document.createElement("option");
@@ -135,6 +141,14 @@
                 break;
             }
             case '工程學院': {
+                var department = document.getElementById("Department");
+                var old_option = document.querySelectorAll('#Department option');
+                console.log("old_option " + old_option);
+                console.log("old_option.length " + old_option.length);
+                // 把 option 清除
+                old_option.forEach(o => o.remove());
+                console.log(old_option)
+
                 for (var i = 0; i < engineering.length; i++) {
                     var e = engineering[i];
 
@@ -146,6 +160,15 @@
                 break;
             }
             case '人文學院': {
+                var department = document.getElementById("Department");
+                var department = document.getElementById("Department");
+                var old_option = document.querySelectorAll('#Department option');
+                console.log("old_option " + old_option);
+                console.log("old_option.length " + old_option.length);
+                // 把 option 清除
+                old_option.forEach(o => o.remove());
+                console.log(old_option)
+
                 for (var i = 0; i < humanities.length; i++) {
                     var h = humanities[i];
                     var op = document.createElement("option");
@@ -156,6 +179,15 @@
                 break;
             }
             case '設計學院': {
+                var department = document.getElementById("Department");
+                var department = document.getElementById("Department");
+                var old_option = document.querySelectorAll('#Department option');
+                console.log("old_option " + old_option);
+                console.log("old_option.length " + old_option.length);
+                // 把 option 清除
+                old_option.forEach(o => o.remove());
+                console.log(old_option)
+
                 for (var i = 0; i < design.length; i++) {
                     var d = design[i];
                     var op = document.createElement("option");
@@ -168,12 +200,6 @@
             default: {
                 break;
             }
-        }
-    }
-    function removeOption(){
-        // var selectobject = document.getElementById("Department");
-        for (var i=0; i<child.length; i++) {
-            department.remove(child[i]);
         }
     }
 </script>

@@ -83,8 +83,8 @@ class AppointmentForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'department': forms.Select(attrs={'class': 'form-control'}),
             'date': forms.TextInput(attrs={'class': 'form-control'}),
-            'time': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'time': forms.Select(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'msg': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
