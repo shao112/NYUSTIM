@@ -4,6 +4,8 @@ from django.http import JsonResponse
 # 分頁
 from django.core.paginator import Paginator
 from django.views.decorators.csrf import csrf_exempt
+# Form
+from .forms import AppointmentForm
 
 # Create your views here.
 @csrf_exempt
@@ -74,10 +76,11 @@ def competition(request):
 # 預約友誼賽
 def appointment(request):
 
-    appointment = Appointment.objects.all().order_by('id')
-    
+
+    form = AppointmentForm()
+
     context = {
-        'appointment':appointment
+        'form':form
     }
 
     return render(request, "appointment/appointment.html", context)

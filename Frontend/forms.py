@@ -95,5 +95,5 @@ class AppointmentForm(forms.ModelForm):
             'date': '預約日期',
             'time': '預約時間',
             'email': '電子信箱',
-            'msg': '留言',
+            'msg': '留個言吧!',
         }
