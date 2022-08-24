@@ -71,6 +71,11 @@ class EventForm(forms.ModelForm):
         }
 
 # 預約友誼賽表單
+Time_Choice = [
+    ("早上 5:30","早上 5:30"),
+    ("早上 6:00","早上 6:00"),
+    ("早上 6:30","早上 6:30"),
+]
 Department_Choice = [
     ("企管系","企管系"),
     ("工管系","工管系"),
@@ -96,12 +101,21 @@ class AppointmentForm(forms.ModelForm):
             }),
             'department': forms.TextInput(attrs={
                 'class': 'form-control',
-                'id': 'InpurDepartment'
+                'id': 'InpurDepartment',
+                # 'style': 'display:none'
             }),
-            'date': forms.TextInput(attrs={'class': 'form-control'}),
-            'time': forms.Select( attrs={'class': 'form-control'}),
+            'date': forms.TextInput(
+                attrs={
+                    'class': 'form-control'
+                    # 'style': 'display:none'
+                }),
+            'time': forms.RadioSelect(choices=Time_Choice, attrs={'class': 'form-check'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'msg': forms.TextInput(attrs={'class': 'form-control'}),
+            'msg': forms.Textarea(
+                attrs={
+                    'class': 'form-control',
+                    'rows':3
+                }),
         }
 
         #預設會是顯示英文欄位，可用labels改成對應中文欄位
